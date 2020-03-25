@@ -1,6 +1,11 @@
 import React, {Component} from 'react';
+<<<<<<< HEAD
 import Navegation from '../navbars/MenuWelcome';
 const axios = require('axios');
+=======
+const axios = require('axios');
+
+>>>>>>> 839b1d01e863d25125bad01ad59132adcf6d11dd
 //import 'materialize-css/dist/css/materialize.min.css'
 class Registro extends Component{
 
@@ -50,7 +55,11 @@ onChangePassword=(e)=>{
 }
 onSubmit=async e=>{
   e.preventDefault();
+<<<<<<< HEAD
   await axios.post('http://127.0.0.1:3001/users/',{
+=======
+  await axios.post('http://127.0.0.1:4000/users/',{
+>>>>>>> 839b1d01e863d25125bad01ad59132adcf6d11dd
     Nombre:this.state.name,
     Apellido:this.state.lastname,
     Correo:this.state.correo,
@@ -63,8 +72,11 @@ this.cancelCourse();
 }
 render(){
 return(
+<<<<<<< HEAD
   <div>
   <Navegation />
+=======
+>>>>>>> 839b1d01e863d25125bad01ad59132adcf6d11dd
 <div className="container col-md-3">
   <form id="create-course-form" onSubmit={this.onSubmit} >
     Nombre:<input type="text" className="form-control" onChange={this.onChangeName} name="nombre"></input>
@@ -79,7 +91,10 @@ return(
   </form>
 
 </div>
+<<<<<<< HEAD
 </div>
+=======
+>>>>>>> 839b1d01e863d25125bad01ad59132adcf6d11dd
 )
 }
 }

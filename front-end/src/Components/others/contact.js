@@ -1,12 +1,18 @@
 import React, {
   Component
 } from 'react';
+<<<<<<< HEAD
 import Navegation from '../navbars/MenuWelcome';
+=======
+>>>>>>> 839b1d01e863d25125bad01ad59132adcf6d11dd
 //import 'materialize-css/dist/css/materialize.min.css'
 class Contact extends Component {
   render() {
     return ( < div >
+<<<<<<< HEAD
       <Navegation />
+=======
+>>>>>>> 839b1d01e863d25125bad01ad59132adcf6d11dd
       <
       div className = "container col-sm-4" >
       <
