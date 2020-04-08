@@ -1,101 +1,63 @@
 import React, {Component} from 'react';
-<<<<<<< HEAD
 import Navegation from '../navbars/MenuWelcome';
 const axios = require('axios');
-=======
-const axios = require('axios');
 
->>>>>>> 839b1d01e863d25125bad01ad59132adcf6d11dd
-//import 'materialize-css/dist/css/materialize.min.css'
 class Registro extends Component{
-
-state={
-name:'',
-lastname:'',
-correo:'',
-date:'',
-user:'',
-password:''
-//db:''
-}
-
-onChangeName=(e)=>{
-this.setState({
-name:e.target.value,
-//db:e.target.value
-})
-}
-onChangeLastName=(e)=>{
-  this.setState({
-  lastname:e.target.value
-  })
-}
-onChangeCorreo=(e)=>{
-  this.setState(
-    {correo:e.target.value}
-  )
-}
-onChangeDate=(e)=>{
-  this.setState(
-    {date:e.target.value}
-  )
-}
-onChangeUser=(e)=>{
-  this.setState(
-    {user:e.target.value}
-  )
-}
-cancelCourse = () => {
+  constructor() {
+      super();
+      this.state = {
+        nombre: '',
+        apellido: '',
+        correo: '',
+        fechaNac: '',
+        usuario: '',
+        password: ''
+        //db:''
+      }
+      this.change=this.change.bind(this);
+      this.onSubmit = this.onSubmit.bind(this);
+    }
+    change(e){
+      this.setState({
+        [e.target.name]: e.target.value
+      })
+    }
+    cancelCourse = () => {
   document.getElementById("create-course-form").reset();
 }
-onChangePassword=(e)=>{
-  this.setState(
-    {password:e.target.value}
-  )
-}
-onSubmit=async e=>{
-  e.preventDefault();
-<<<<<<< HEAD
-  await axios.post('http://127.0.0.1:3001/users/',{
-=======
-  await axios.post('http://127.0.0.1:4000/users/',{
->>>>>>> 839b1d01e863d25125bad01ad59132adcf6d11dd
-    Nombre:this.state.name,
-    Apellido:this.state.lastname,
-    Correo:this.state.correo,
-    FechaNac:this.state.date,
-    Usuario:this.state.user,
-    Contraseña:this.state.password,
-    //db:this.state.db
-  })
-this.cancelCourse();
-}
-render(){
-return(
-<<<<<<< HEAD
-  <div>
-  <Navegation />
-=======
->>>>>>> 839b1d01e863d25125bad01ad59132adcf6d11dd
-<div className="container col-md-3">
-  <form id="create-course-form" onSubmit={this.onSubmit} >
-    Nombre:<input type="text" className="form-control" onChange={this.onChangeName} name="nombre"></input>
-    Apellido:<input type="text" className="form-control" onChange={this.onChangeLastName}  name="apellido"></input>
-    Correo:<input type="email" className="form-control" onChange={this.onChangeCorreo} ></input>
-    Fecha de Nacimiento:<input type="date" className="form-control" onChange={this.onChangeDate} ></input>
-    Usuario:<input type="text" className="form-control" name="usuario" onChange={this.onChangeUser} ></input>
-    Contraseña:<input type="password" className="form-control" name="pas" onChange={this.onChangePassword} ></input>
-    <br />
-    <button type="submit" className="btn btn-lg  btn-block btn-primary">Guardar</button>
+    onSubmit(e){
+      e.preventDefault();
+      axios.post('http://127.0.0.1:3001/users/', {
+        nombre: this.state.nombre,
+        apellido: this.state.apellido,
+        correo: this.state.correo,
+        fechaNac: this.state.fechaNac,
+        usuario: this.state.usuario,
+        password: this.state.password
+        //db:this.state.db
+      })
+      this.cancelCourse();
+    }
+    render() {
+      return (
+      <div>
+        <Navegation />
+      <div className="container col-md-3">
+        <form id="create-course-form"onSubmit={e => this.onSubmit(e)} >
+          Nombre:<input type="text" className="form-control" onChange={e => this.change(e)} value={this.state.nombre} name="nombre"></input>
+          Apellido:<input type="text" className="form-control" onChange={e => this.change(e)} value={this.state.apellido}  name="apellido"></input>
+          Correo:<input type="email" className="form-control" onChange={e => this.change(e)} value={this.state.correo} name="correo"></input>
+          Fecha de Nacimiento:<input type="date" className="form-control" onChange={e => this.change(e)}value={this.state.fechaNac} name="fechaNac"></input>
+          Usuario:<input type="text" className="form-control" onChange={e => this.change(e)} name="usuario"value={this.state.usuario}></input>
+          Contraseña:<input type="password" className="form-control"onChange={e => this.change(e)} value={this.state.password}name="password" ></input>
+          <br />
+          <button type="submit" className="btn btn-lg  btn-block btn-primary">Guardar</button>
 
-  </form>
+        </form>
 
-</div>
-<<<<<<< HEAD
-</div>
-=======
->>>>>>> 839b1d01e863d25125bad01ad59132adcf6d11dd
-)
-}
+      </div>
+      </div>
+      )
+    }
 }
 export default Registro;

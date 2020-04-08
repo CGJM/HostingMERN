@@ -4,7 +4,7 @@ const knexDb=knex({  client: 'mysql',
     host: '127.0.0.1',
     user: 'root',
     password: 'Esnafer19#',
-    database: 'prueba'
+    database: 'HostingUPT'
   }});
 const bookshelf = require('bookshelf');
 const secure = require('bookshelf-secure-password');

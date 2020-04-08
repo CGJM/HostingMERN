@@ -1,8 +1,7 @@
 import React,{ Component } from 'react';
 import logo from './uptlogo.png';
-import './navbar.css';
+import './css/navbar.css';
 import {Link} from 'react-router-dom'
-//import Carrousel from '../Carrosel/Carrosel';
 
 
 class MenuWelcome extends Component{

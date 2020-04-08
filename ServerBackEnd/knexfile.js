@@ -8,7 +8,7 @@ module.exports = {
       host: '127.0.0.1',
       user: 'root',
       password: 'Esnafer19#',
-      database: 'prueba'
+      database: 'HostingUPT'
     }
   }
 };

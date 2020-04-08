@@ -1,17 +1,11 @@
 import React, {Component} from 'react';
 import './carrusel.css';
-<<<<<<< HEAD
 import Navegation from '../navbars/MenuWelcome';
-=======
->>>>>>> 839b1d01e863d25125bad01ad59132adcf6d11dd
 class Carrousel extends Component{
   render(){
     return(
       <div>
-<<<<<<< HEAD
       <Navegation />
-=======
->>>>>>> 839b1d01e863d25125bad01ad59132adcf6d11dd
       <br /><br /><br />
       <div id="carr" className="content-all">
         <div className="content-carrousel">

@@ -1,18 +1,22 @@
 import React, {Component} from 'react';
 import {getJwt} from '../helpers/jwt';
 import axios from 'axios';
-import { withRouter } from 'react-router-dom';
-class AuhtComponent extends Component{
-  constructor(props){
+
+
+const withAuth = WrappedComponent =>
+  class extends Component {
+    constructor(props){
     super(props);
 
     this.state={
       user: undefined
     }
   }
+
   componentDidMount(){
    this.getUser();
   }
+
   getUser() {
     const jwt = getJwt();
     if (!jwt) {
@@ -27,8 +31,8 @@ class AuhtComponent extends Component{
         user: res.data
       })
     });
-  }
 
+  }
   render(){
     const { user } = this.state;
     if (user === undefined) {
@@ -43,8 +47,8 @@ class AuhtComponent extends Component{
       this.props.history.push('/login');
     }
 
-    return this.props.children;
+    return <WrappedComponent {...this.user} user={JSON.stringify(this.state.user)}/>;
   }
-}
+};
 
-export default withRouter(AuhtComponent);
+export default withAuth;
