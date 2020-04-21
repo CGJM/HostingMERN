@@ -21,7 +21,8 @@ app.use(body.json());
 //app.get('/user',require('./routes/user'));
 app.use('/users',require('./routes/user'));
 app.use('/login',require('./routesLogin/UserLogin'));
-app.use('/uploadFile',require('./routes/upload'))
+app.use('/uploadFile',require('./routes/upload'));
+app.use('/project',require('./routes/project'));
 app.get('/getUser',passport.authenticate('jwt',{session:false}),(req,res) =>{
   res.send(req.user);
 });

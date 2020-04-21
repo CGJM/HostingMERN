@@ -1,20 +1,25 @@
 import React, {Component} from 'react';
 import './css/NavBarVertical.css';
-import {Link} from 'react-router-dom'
+import {Link} from 'react-router-dom';
+import { GoGitBranch,GoDatabase } from "react-icons/go";
+import { MdQueue,MdAssignmentInd } from "react-icons/md";
+import { IoIosHome } from "react-icons/io";
 
 class Verti extends Component{
 render(){
 return(
+  <div>
 <div className="wrapper">
   <div className="sidebar">
     <ul>
-      <li><Link to="/"><i className="fas fa-home"></i>Proyectos</Link></li>
-      <li><Link to="/"><i className="fas fa-user"></i>Nuevo proyecto</Link></li>
-      <li><Link to="/"><i className="fas fa-address-card"></i>Inicio</Link></li>
-      <li><Link to="/"><i className="fas fa-project-diagram"></i>Mi base de datos</Link></li>
-      <li><a><i className="fas fa-project-diagram"></i>Bienvenido: {this.props.usuario}</a></li>
+      <li><Link to="/getProjects"><GoGitBranch /> Proyectos</Link></li>
+      <li><Link to="/createProject"><MdQueue /> Nuevo proyecto</Link></li>
+      <li><Link to="/protected"><IoIosHome/> Inicio</Link></li>
+      <li><Link to="/"><GoDatabase /> Mi base de datos</Link></li>
+      <li><a><i></i><MdAssignmentInd/> Bienvenido: {this.props.usuario}</a></li>
     </ul>
   </div>
+</div>
 </div>
 )
 }

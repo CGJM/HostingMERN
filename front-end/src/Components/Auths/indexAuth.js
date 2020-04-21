@@ -38,7 +38,6 @@ const withAuth = WrappedComponent =>
     if (user === undefined) {
       return (
         <div>
-          Loading...
         </div>
       );
     }

@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import axios from 'axios';
 import Navegation from '../navbars/MenuWelcome';
+import Foo from '../others/footer';
 
 class Login extends Component{
   constructor(props){
@@ -39,6 +40,7 @@ class Login extends Component{
       <button type="submit" className="btn btn-lg  btn-block btn-primary">Iniciar</button>
     </form>
   </div>
+  <Foo/>
   </div>
 )}
 }

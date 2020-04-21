@@ -1,12 +1,13 @@
 import React, {Component} from 'react';
 import './carrusel.css';
 import Navegation from '../navbars/MenuWelcome';
+import Foo from '../others/footer';
 class Carrousel extends Component{
   render(){
     return(
       <div>
       <Navegation />
-      <br /><br /><br />
+      <br /><br />
       <div id="carr" className="content-all">
         <div className="content-carrousel">
           <figure><img src="https://www.hidalguia.com.mx/gobierno/2014/140410-0430.jpg" alt="uno" /></figure>
@@ -20,6 +21,7 @@ class Carrousel extends Component{
           <figure><img src="http://www.upt.edu.mx/Contenido/OfertaEducativa/Profesional/ISC/images/Galeria/img_ISC_13.jpg" alt="diez"/></figure>
           </div>
         </div>
+        <Foo />
         </div>
     )
   }

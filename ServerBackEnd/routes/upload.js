@@ -1,10 +1,12 @@
 const {Router}= require('express');
 const router=Router();
-const {uploadFile}=require('../Controllers/uploadFile');
+const {uploadFile,prueba}=require('../Controllers/uploadFile');
 
 
 router.route('/')
-  .post(uploadFile);
+  .post(uploadFile)
+    .get(prueba)  ;
+
 
 
 module.exports=router;

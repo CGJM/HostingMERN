@@ -2,6 +2,7 @@ import React, {
   Component
 } from 'react';
 import Navegation from '../navbars/MenuWelcome';
+import Foo from '../others/footer';
 class Contact extends Component {
   render() {
     return ( < div >
@@ -26,7 +27,9 @@ class Contact extends Component {
       div className = "container col-sm-4" >
       <
       h3 > Uriel Edgardo Escobar < /h3> <
-      /div> <
+      /div>
+      <Foo />
+       <
       /div>
     )
   }

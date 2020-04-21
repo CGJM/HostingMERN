@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import Navegation from '../navbars/MenuWelcome';
+import Foo from '../others/footer';
 const axios = require('axios');
 
 class Registro extends Component{
@@ -11,8 +12,8 @@ class Registro extends Component{
         correo: '',
         fechaNac: '',
         usuario: '',
-        password: ''
-        //db:''
+        password: '',
+        db:''
       }
       this.change=this.change.bind(this);
       this.onSubmit = this.onSubmit.bind(this);
@@ -27,16 +28,21 @@ class Registro extends Component{
 }
     onSubmit(e){
       e.preventDefault();
-      axios.post('http://127.0.0.1:3001/users/', {
+      axios.post('users/', {
         nombre: this.state.nombre,
         apellido: this.state.apellido,
         correo: this.state.correo,
         fechaNac: this.state.fechaNac,
         usuario: this.state.usuario,
-        password: this.state.password
-        //db:this.state.db
-      })
-      this.cancelCourse();
+        password: this.state.password,
+        db:this.state.db
+      }).then(() => {
+          const response = window.confirm('Usuario creado');
+          if(response){
+            this.props.history.push('/login');
+          }
+          this.props.history.push('/login');
+          })
     }
     render() {
       return (
@@ -50,12 +56,13 @@ class Registro extends Component{
           Fecha de Nacimiento:<input type="date" className="form-control" onChange={e => this.change(e)}value={this.state.fechaNac} name="fechaNac"></input>
           Usuario:<input type="text" className="form-control" onChange={e => this.change(e)} name="usuario"value={this.state.usuario}></input>
           Contraseña:<input type="password" className="form-control"onChange={e => this.change(e)} value={this.state.password}name="password" ></input>
+          Nombre de la Base de datos:<input className="form-control"onChange={e => this.change(e)} value={this.state.db}name="db" ></input>
           <br />
           <button type="submit" className="btn btn-lg  btn-block btn-primary">Guardar</button>
-
+          
         </form>
-
       </div>
+
       </div>
       )
     }
