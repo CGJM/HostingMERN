@@ -1,12 +1,11 @@
-const {Router}= require('express');
-const router=Router();
-const {uploadFile,prueba}=require('../Controllers/uploadFile');
+const {Router} = require('express');
+const router = Router();
+const {uploadFile, prueba} = require('../Controllers/uploadFile');
 
 
 router.route('/')
-  .post(uploadFile)
-    .get(prueba)  ;
+    .post(uploadFile)
+    .get(prueba);
 
 
-
-module.exports=router;
+module.exports = router;
