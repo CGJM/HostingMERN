@@ -7,7 +7,7 @@ var storage = multer.diskStorage({
     destination: function (req, file, cb) {
         let type = req.path;
         console.log('Ruta: ', type)
-        cb(null, '/var/pruebas/', type);
+        cb(null, '/var/pruebas/'+type);
     },
     filename: function (req, file, cb) {
         cb(null, file.originalname)

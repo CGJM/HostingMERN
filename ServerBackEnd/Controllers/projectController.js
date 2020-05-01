@@ -26,7 +26,6 @@ project.getInfoFolderUser = (req, res) => {
 }
 project.getFolderProjects=(req,res)=>{
   console.warn('Backend '+req.param('project'))
-  console.log('Hola',req.param('project'))
   if (!req.param('project')) {
     console.log('Faltan datos para folder 1111');
   }

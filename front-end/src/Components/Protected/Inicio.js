@@ -28,7 +28,7 @@ class Inicio extends Component {
 
     return (
       <div>
-        <NavHori />
+        <NavHori usuario={this.state.nom.usuario} database={this.state.nom.database} />
         <NavVertical usuario={this.state.nom.usuario} />
         <div style={{marginLeft: '400px',marginTop:'50px'}}className="container col-md-7">
           <div className="card-deck">

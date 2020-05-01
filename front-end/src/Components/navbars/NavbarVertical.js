@@ -16,7 +16,7 @@ return(
       <li><Link to="/createProject"><MdQueue /> Nuevo proyecto</Link></li>
       <li><Link to="/protected"><IoIosHome/> Inicio</Link></li>
       <li><Link to="/"><GoDatabase /> Mi base de datos</Link></li>
-      <li><a><MdAssignmentInd/> Bienvenido: {this.props.usuario}</a></li>
+      <li style={{color:"white"}}><MdAssignmentInd/> Bienvenido: {this.props.usuario}</li>
     </ul>
   </div>
 </div>

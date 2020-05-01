@@ -8,6 +8,7 @@ exports.up = function(knex) {
     t.dateTime('FechaNac').notNull();
     t.string('usuario').notNull();
     t.string('password_digest').notNull();
+    t.string('database').notNull();
   })
 };
 

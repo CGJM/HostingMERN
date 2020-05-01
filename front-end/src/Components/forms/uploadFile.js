@@ -25,8 +25,7 @@ class uploadF extends Component {
             }
         };
         if (response) {
-            console.warn('Ruta: ', this.state.path)
-            fd.append('noren', this.state.selectedFile, this.state.path)
+            fd.append('noren', this.state.selectedFile)
             axios.post('uploadFile', fd, config)
                 .then((response) => {
                     alert("El archivo se subio exitosamente");
@@ -41,7 +40,6 @@ class uploadF extends Component {
         return (
             <div>
                 <div>
-                    <div style={{marginLeft: '0px'}}>
                         <div className="input-group">
                             <div className="custom-file">
                                 <input disabled={this.props.disa} type="file" className="custom-file-input"
@@ -54,7 +52,6 @@ class uploadF extends Component {
                                     onClick={this.fileUploadHandler} type="button" id="inputGroupFileAddon04">Subir
                             </button>
                         </div>
-                    </div>
                 </div>
             </div>
         )

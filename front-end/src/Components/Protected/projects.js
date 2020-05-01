@@ -89,6 +89,18 @@ class getProjects extends Component {
                 <NavVertical usuario={this.state.nom.usuario} />
                 <div>
                     <div style={{marginLeft: '250px', marginTop: '50px'}} className="container col-md-7">
+
+                        <div className="row" >
+                            <div aria-required="true" className="card text-center"
+                                 style={{width: '18rem',position:"fixed",left:"77%"}}>
+                                <div className="card-header text-center text-justify lead">
+                                    Subir Archivos
+                                </div>
+                                <div className="card-body">
+                                    <Upload path={this.state.path} disa={this.state.disabled}/>
+                                </div>
+                            </div>
+                        </div>
                         <NavegationProject path={this.state.path} callback={this.info.bind(this)}/>
                         <table className="table  table-bordered">
                             <thead className="thead-dark">
@@ -141,17 +153,6 @@ class getProjects extends Component {
                             }
                             </tbody>
                         </table>
-                    </div>
-                </div>
-                <div className="row" >
-                    <div aria-required="true" className="card text-center"
-                         style={{width: '18rem',position:"fixed",left:"77%",top:"15%"}}>
-                        <div className="card-header text-center text-justify lead">
-                            Subir Archivos
-                        </div>
-                        <div className="card-body">
-                            <Upload path={this.state.path} disa={this.state.disabled}/>
-                        </div>
                     </div>
                 </div>
             </div>

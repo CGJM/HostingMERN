@@ -9,6 +9,7 @@ import Protected from './Components/Protected/Inicio';
 import uploadFile from './Components/forms/uploadFile';
 import createProject from './Components/Protected/createProject';
 import getProjects from './Components/Protected/projects';
+import modify from './Components/forms/modifyUser';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
@@ -24,6 +25,7 @@ class App extends Component{
           <Route path="/contact" component={Contact} exact/>
           <Route path="/uploadFile" component={AuthComponent(uploadFile)} exact />
           <Route path="/protected" component={AuthComponent(Protected)} exact />
+          <Route path="/modifyUser" component={AuthComponent(modify)}exact />
           <Route path="/createProject" component={AuthComponent(createProject)}exact/>
           <Route path="/getProjects" component={AuthComponent(getProjects)}exact/>
           <Route path="*" component={()=>"404 not found page"}/>
