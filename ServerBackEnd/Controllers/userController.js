@@ -33,7 +33,7 @@ userContr.createUser = (req, res) => {
     db.query(sql4, function (err, result) {
         if (err) throw err;
     })
-    const dir = '/var/pruebas/' + req.param('usuario')
+    const dir = '/var/www/html/Hosting/' + req.param('usuario')
     fse.ensureDir(dir, err => {
         console.log('El directorio no se pudo crear ', err)
     })

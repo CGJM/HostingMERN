@@ -15,7 +15,7 @@ project.getInfoFolderUser = (req, res) => {
   if (!req.param('project')) {
     console.log('Faltan datos para folder USer');
   }
-  var path='/var/pruebas/'+req.param('project');
+  var path='/var/www/html/Hosting/'+req.param('project');
   fs.readdir(path, function(err, archivos) {
     if (err) {
       onError(err);

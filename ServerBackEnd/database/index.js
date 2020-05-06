@@ -3,7 +3,7 @@ const knexDb=knex({  client: 'mysql',
   connection: {
     host: '127.0.0.1',
     user: 'root',
-    password: 'Esnafer19#',
+    password: 'Esnafer19',
     database: 'HostingUPT'
   }});
 const bookshelf = require('bookshelf');
