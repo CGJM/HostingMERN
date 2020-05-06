@@ -37,10 +37,10 @@ const withAuth = WrappedComponent =>
     const { user } = this.state;
     if (user === undefined) {
       return (
-        <div>
-          <h1>Usuario no encontrado</h1>
-        </div>
-      );
+          <div>
+
+          </div>
+      )
     }
 
     if (user === null) {

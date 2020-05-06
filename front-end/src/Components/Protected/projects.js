@@ -3,9 +3,11 @@ import axios from 'axios';
 import NavHori from '../navbars/NavbarHorizontal'
 import NavVertical from '../navbars/NavbarVertical'
 import Upload from '../forms/uploadFile';
+import CreateFolder from '../forms/createFolder';
 import NavegationProject from "../navbars/navegationProject";
 import {GoFileDirectory} from "react-icons/go";
-import {FaPhp, FaHtml5, FaFileArchive} from "react-icons/fa"
+import {IoLogoJavascript} from "react-icons/io"
+import {FaPhp, FaHtml5, FaFileArchive, FaCss3Alt} from "react-icons/fa"
 import {MdDelete} from "react-icons/md";
 
 
@@ -18,7 +20,8 @@ class getProjects extends Component {
             counter: 0,
             path: '',
             extension: '',
-            disabled: true
+            disabled: true,
+            disabledFiles:false
         }
     }
 
@@ -80,24 +83,55 @@ class getProjects extends Component {
             console.error(error);
         }
     }
+    delete=async (e)=> {
+        let file = e.split('.').pop();
+        let type;
+        if (file === "txt" || file === "php" || file === "css" || file === "js" || file === "html") {
+            window.confirm("Seguro de eliminar este archivo")
+            type = "archivo";
+        } else {
+            window.confirm("Seguro de elimnar este directorio")
+            type = "";
+        }
+        await axios.delete('project/delete/', {
+            data:{
+                file: this.state.path+"/"+e,
+                type: type
+            }
+        }).then(res=>{
+            if (res){
+                window.confirm("Se elimino con exito")
+            }
+        });
+    }
     render() {
         let count_click = 0;
-        //400px centra el componente de la tabla
         return (
             <div>
                 <NavHori/>
-                <NavVertical usuario={this.state.nom.usuario} />
+                <NavVertical usuario={this.state.nom.usuario}/>
                 <div>
                     <div style={{marginLeft: '250px', marginTop: '50px'}} className="container col-md-7">
 
-                        <div className="row" >
+                        <div className="row">
                             <div aria-required="true" className="card text-center"
-                                 style={{width: '18rem',position:"fixed",left:"77%"}}>
+                                 style={{width: '18rem', position: "fixed", left: "77%"}}>
                                 <div className="card-header text-center text-justify lead">
                                     Subir Archivos
                                 </div>
                                 <div className="card-body">
                                     <Upload path={this.state.path} disa={this.state.disabled}/>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="row fixed-right">
+                            <div aria-required="true" className="card text-center"
+                                 style={{width: '18rem', position: "fixed", left: "77%", top: "290px"}}>
+                                <div className="card-header text-center text-justify lead">
+                                    Crear folder
+                                </div>
+                                <div className="card-body">
+                                    <CreateFolder path={this.state.path} disa={this.state.disabled}/>
                                 </div>
                             </div>
                         </div>
@@ -120,33 +154,36 @@ class getProjects extends Component {
                                         <td>{infa}</td>
                                         <td>{this.state.nom.usuario}</td>
                                         <td>
-                                            <button
-                                                onClick={() => this.setState(
-                                                    {
-                                                        disabled: false,
-                                                        counter: 1,
-                                                        path: this.state.path + '/' + infa
+                                            {
+                                                (() => {
+                                                    switch (infa.split('.').pop()) {
+                                                        case "txt":
+                                                            return <button className="btn btn-success btn-block"><FaFileArchive/> Abrir</button>
+                                                        case "php":
+                                                            return <button disabled={true}  className="btn btn-info"><FaPhp/> Abrir</button>
+                                                        case "css":
+                                                            return <button disabled={true}  className="btn btn-info"><FaCss3Alt/>Abrir</button>
+                                                        case "js":
+                                                            return <button disabled={true}  className="btn btn-info"><IoLogoJavascript/>Abrir</button>
+                                                        case "html":
+                                                            return <button disabled={true} className="btn btn-info btn-lg"><FaHtml5/> Abrir</button>;
+                                                        default:
+                                                            return <button onClick={() => this.setState(
+                                                                {
+                                                                    disabled: false,
+                                                                    counter: 1,
+                                                                    path: this.state.path + '/' + infa,
+                                                                }
+                                                            )} className="btn btn-info"><GoFileDirectory/> Abrir</button>;
                                                     }
-                                                )}
-                                                className="btn btn-info">
-                                                {
-                                                    (() => {
-                                                        switch (infa.split('.').pop()) {
-                                                            case "txt":
-                                                                return <FaFileArchive/>;
-                                                            case "php":
-                                                                return <FaPhp/>;
-                                                            case "html":
-                                                                return <FaHtml5/>;
-                                                            default:
-                                                                return <GoFileDirectory/>;
-                                                        }
-                                                    })()
-                                                } Abrir
-                                            </button>
+                                                })()
+                                            }
+
                                         </td>
                                         <td>
-                                            <button className="btn btn-danger"><MdDelete/> Eliminar</button>
+                                            <button className="btn btn-danger" onClick={e => this.delete(infa)}>
+                                                <MdDelete/> Eliminar
+                                            </button>
                                         </td>
                                     </tr>
                                 ))

@@ -26,7 +26,9 @@ class uploadF extends Component {
         };
         if (response) {
             fd.append('noren', this.state.selectedFile)
-            axios.post('uploadFile', fd, config)
+            fd.append('path',this.props.path)
+            axios.post('uploadFile/asignar',{path:this.props.path})
+            axios.post('uploadFile/upload', fd, config)
                 .then((response) => {
                     alert("El archivo se subio exitosamente");
                 }).catch((error) => {
