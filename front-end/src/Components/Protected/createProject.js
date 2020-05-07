@@ -33,7 +33,7 @@ class Project extends Component {
        if (response) {
            axios.post('project/project',{
              project:this.state.project,
-             usuario:"/var/pruebas/"+this.state.nom.usuario
+             usuario:"/var/www/html/Hosting/"+this.state.nom.usuario
            },
            window.confirm('Proyecto creado')
          );

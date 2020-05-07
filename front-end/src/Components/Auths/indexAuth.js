@@ -11,6 +11,7 @@ const withAuth = WrappedComponent =>
     this.state={
       user: undefined
     }
+
   }
 
   componentDidMount(){
@@ -35,10 +36,13 @@ const withAuth = WrappedComponent =>
   }
   render(){
     const { user } = this.state;
+
     if (user === undefined) {
       return (
           <div>
-
+            <div className="container-fluid center border-primary" style={{marginTop:"55px"}}>
+              <h1 className="text-center">Usuario no encontrado</h1>
+            </div>
           </div>
       )
     }
