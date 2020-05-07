@@ -16,7 +16,7 @@ constructor(props) {
         this.props.callback(path)
     }
     render() {
-        let ruta = this.props.path.split("/").slice(3)
+        let ruta = this.props.path.split("/").slice(5)
         return (
             <div>
                 <nav aria-label="breadcrumb">
