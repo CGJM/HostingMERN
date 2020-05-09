@@ -1,24 +1,21 @@
-
 const express = require('express');
-const cors = require('cors');
-const app=express();
-const passport = require('./config/passport');
+const app= express();
 const body = require('body-parser');
+const cors = require('cors');
+const passport = require('./config/passport');
 
-
-//settings
-app.set('port',process.env.PORT||3001);
 
 //middlewares
-app.use(cors());
-app.use(express.json());
 app.use(passport.initialize());
 app.use(body.urlencoded({extended:false}));
 app.use(body.json());
-app.use(body.json());
+app.use(cors());
 
+//settings
+app.set('port',process.env.PORT||3001);
 //routes
 //app.get('/user',require('./routes/user'));
+app.use('/prueba',require('./routes/prueba'));
 app.use('/users',require('./routes/user'));
 app.use('/login',require('./routesLogin/UserLogin'));
 app.use('/uploadFile',require('./routes/upload'));

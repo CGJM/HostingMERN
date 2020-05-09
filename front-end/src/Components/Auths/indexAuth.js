@@ -38,7 +38,12 @@ const withAuth = WrappedComponent =>
     if (user === undefined) {
       return (
           <div>
-
+            <div className="container-fluid center border-primary" style={{marginTop: "55px"}}>
+              <h1 className="text-center">Usuario o contraseña incorrecto</h1>
+            </div>
+            <div className="container-fluid center border-primary" style={{marginTop: "25px"}}>
+              <h3 className="text-center">Favor de regresar al login</h3>
+            </div>
           </div>
       )
     }
