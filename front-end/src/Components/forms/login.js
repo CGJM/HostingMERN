@@ -8,25 +8,46 @@ class Login extends Component{
     super(props);
     this.state={
       user:'',
-      password:''
+      password: '',
+      validación:undefined
     };
-    this.change=this.change.bind(this);
-    this.submit=this.submit.bind(this);
+    this.change = this.change.bind(this);
+    this.submit = this.submit.bind(this);
   }
-  change(e){
+
+  change(e) {
     this.setState({
       [e.target.name]: e.target.value
     })
   }
-  submit(e){
+
+  handleValidation = async () => {
+    let pass = this.state.password
+    let user = this.state.user;
+    let formValid = true;
+    if (user===''){
+      formValid=false;
+    }
+    if (pass===''){
+      formValid=false;
+    }
+    return this.setState({validacion: formValid});
+  }
+
+  submit=async (e)=> {
     e.preventDefault();
-    axios.post('login/token',{
-      usuario: this.state.user,
-      password: this.state.password
-    }).then(res =>{
-      localStorage.setItem('cool-jwt',res.data);
-      this.props.history.push('/protected');
-  });
+    await this.handleValidation()
+    if (this.state.validacion===true) {
+      axios.post('login/token', {
+        usuario: this.state.user,
+        password: this.state.password
+      }).then(res => {
+        localStorage.setItem('cool-jwt', res.data);
+        this.props.history.push('/protected');
+      });
+    }else {
+      alert("Favor de llenar el formulario.")
+    }
   }
   render(){
   return(

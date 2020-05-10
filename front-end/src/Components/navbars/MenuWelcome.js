@@ -2,6 +2,7 @@ import React,{ Component } from 'react';
 import logo from './uptlogo.png';
 import './css/navbar.css';
 import {Link} from 'react-router-dom'
+import Manual from "../PDFs/Manual de usuario.pdf";
 
 
 class MenuWelcome extends Component{
@@ -34,9 +35,7 @@ return(
         </Link>
         </li>
         <li className="menu__list-item">
-        <Link className="menu__link" to="/">
-        Manual
-        </Link>
+          <Link className="menu__link" to={Manual} target="_blank">Manual</Link>
         </li>
       </ul>
     </div>

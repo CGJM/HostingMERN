@@ -12,6 +12,7 @@ loginContr.loginAuthToken=async(req,res)=>{
   if(!req.param('usuario') || !req.param('password')){
     return res.send('Sin datos');
   }
+
   await user.forge({usuario: req.param('usuario')}).fetch().then(result=>{
     if(!result){
       return res.send('Usuario no encontrado');
@@ -24,6 +25,8 @@ loginContr.loginAuthToken=async(req,res)=>{
     }).catch(err=>{
       return res.send({err: err});
     });
+  }).catch(function (error) {
+    return res.send('Usuario no encontrado')
   });
 }
 

@@ -161,15 +161,26 @@ class getProjects extends Component {
                                                 (() => {
                                                     switch (infa.split('.').pop()) {
                                                         case "txt":
-                                                            return <button onClick={e=>this.actionFiles(e)} className="btn btn-success btn-block"><FaFileArchive/> Abrir</button>
+                                                            return <button onClick={e => this.actionFiles(e)}
+                                                                           className="btn btn-success btn-block">
+                                                                <FaFileArchive/> Abrir</button>
                                                         case "php":
-                                                            return <button onClick={e=>this.actionFiles(e)} disabled={true}  className="btn btn-info"><FaPhp/> Abrir</button>
+                                                            return <button onClick={e => this.actionFiles(e)}
+                                                                           className="btn btn-info"><FaPhp/> Abrir
+                                                            </button>
                                                         case "css":
-                                                            return <button onClick={e=>this.actionFiles(e)} className="btn btn-info"><FaCss3Alt/>Abrir</button>
+                                                            return <button onClick={e => this.actionFiles(e)}
+                                                                           className="btn btn-info"><FaCss3Alt/>Abrir
+                                                            </button>
+
                                                         case "js":
-                                                            return <button onClick={e=>this.actionFiles(e)}  className="btn btn-info"><IoLogoJavascript/>Abrir</button>
+                                                            return <button onClick={e => this.actionFiles(e)}
+                                                                           className="btn btn-info"><IoLogoJavascript/>Abrir
+                                                            </button>
                                                         case "html":
-                                                            return <button onClick={e=>this.actionFiles(e)} className="btn btn-info btn-lg"><FaHtml5/> Abrir</button>;
+                                                            return <button onClick={e => this.actionFiles(e)}
+                                                                           className="btn btn-info btn-lg">
+                                                                <FaHtml5/> Abrir</button>;
                                                         default:
                                                             return <button onClick={() => this.setState(
                                                                 {
