@@ -14,8 +14,6 @@ app.use(cors());
 //settings
 app.set('port',process.env.PORT||3001);
 //routes
-//app.get('/user',require('./routes/user'));
-app.use('/prueba',require('./routes/prueba'));
 app.use('/users',require('./routes/user'));
 app.use('/login',require('./routesLogin/UserLogin'));
 app.use('/uploadFile',require('./routes/upload'));

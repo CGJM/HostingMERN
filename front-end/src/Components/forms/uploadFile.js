@@ -46,6 +46,7 @@ class uploadF extends Component {
                             <div className="custom-file">
                                 <input disabled={this.props.disa} type="file" className="custom-file-input"
                                        onChange={this.fileSelectedHandler} id="inputGroupFile04"
+                                       accept=".php, .html, .txt, .js, .css"
                                        aria-describedby="inputGroupFileAddon04"/>
                                 <label className="custom-file-label text-lg-left"
                                        htmlFor="inputGroupFile04">Archivo</label>
