@@ -1,0 +1,17 @@
+version: '3'
+services:
+  mysql:
+    build: ./Db
+
+  hosting-backend:
+    build: .
+    command: cd ServerBackEnd && knex migrate:latest
+    entrypoint:
+      - /usr/local/bin/docker-entrypoint.sh
+    ports:
+      - "3001:3001"
+
+  hosting-front-end:
+    build: .
+    ports:
+      - "3000:3000"
