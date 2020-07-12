@@ -9,7 +9,7 @@ var storage = multer.diskStorage({
     destination: function (req, file, cb) {
         let type = req.path;
         console.log('Ruta: ', type)
-        cb(null, '/var/pruebas/'+type);
+        cb(null, '/var/www/html/Hosting/'+type);
     },
     filename: function (req, file, cb) {
         cb(null, file.originalname)
@@ -34,7 +34,7 @@ uploadContr.file=(req,res)=>{
     if (req.files){
         var file=req.files.filename,
             filename=file.name;
-        file.mv("/var/pruebas/"+filename,function (err) {
+        file.mv("/var/www/html/Hosting/"+filename,function (err) {
             if (err){
                 console.log(err)
             }else{
