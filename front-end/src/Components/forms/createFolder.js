@@ -49,12 +49,12 @@ class createFolder extends Component{
                 <div>
                     <div className="input-group mb-4">
                         <input disabled={this.props.disa} type="text" className="form-control"
-                               onChange={e => this.onChange(e)} placeholder="Nombre del fodler"
+                               onChange={e => this.onChange(e)} placeholder="Nombre del folder"
                                value={this.state.folder} name="folder" aria-label="Recipient's username"
                                aria-describedby="button-addon2"/>
                         <div className="input-group-append">
                             <button onClick={e => this.submit(e)} disabled={this.props.disa} className="btn btn-success"
-                                    type="button" id="button-addon2">Button
+                                    type="button" id="button-addon2">Generar
                             </button>
                         </div>
                     </div>

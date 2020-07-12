@@ -53,7 +53,7 @@ class Project extends Component {
             <div className="input-group mb-4">
               <input type="text" className="form-control" onChange={e=>this.onChange(e)}placeholder="Nombre del proyecto"  value={this.state.project} name="project" aria-label="Recipient's username" aria-describedby="button-addon2" />
               <div className="input-group-append">
-                <button onClick={e=>this.submit(e)}className="btn btn-success" type="button" id="button-addon2">Button</button>
+                <button onClick={e=>this.submit(e)}className="btn btn-success" type="button" id="button-addon2">Generar proyecto</button>
               </div>
             </div>
           </div>
